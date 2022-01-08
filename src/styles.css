@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@font-face {
+    font-family: NunitoSans;
+    src: url(assets/fonts/NunitoSans-Regular.ttf) format('TrueType');
+}
+body{
+    font-family: NunitoSans;
+}
+@font-face {
+    font-family: NunitoSansBold;
+    src: url(assets/fonts/NunitoSans-Bold.ttf)format('TrueType');
+}
+.mat-form-field-appearance-outline .mat-form-field-flex{
+    background-color: white;
+}
+.mat-form-field-appearance-outline{
+    color: black;
+}
+.mat-form-field-flex {
+    width: 85%;
+}

@@ -1,0 +1,14 @@
+
+  table {
+    width: 95%;
+    border: solid;
+    margin: 2%;
+  }
+  .search{
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  mat-progress-bar{
+      width: 100%;
+      margin-top: 1%;
+  }
