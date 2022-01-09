@@ -1,38 +1,38 @@
-<div class="input-group search" >
-    <div class="form-outline">
-      <input type="search" id="form1" class="form-control" placeholder="Search" [(ngModel)]="brewname" />
-    </div>
-    <button type="button" class="btn btn-primary" (click)="getdatabyname(brewname)" [disabled]="!brewname" >
-      <i class="fas fa-search"></i>
-    </button>
-  </div> 
-  <mat-progress-bar mode="indeterminate" *ngIf="showspinner"></mat-progress-bar>
+<div class="input-group search">
+  <div class="form-outline">
+    <input type="search" id="form1" class="form-control" placeholder="Search" [(ngModel)]="brewname" />
+  </div>
+  <button type="button" class="btn btn-primary" (click)="getdatabyname(brewname)" [disabled]="!brewname">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+<mat-progress-bar mode="indeterminate" *ngIf="showspinner"></mat-progress-bar>
 <table class="table table-striped table-responsive" *ngIf="checkdata() && !showspinner">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">Name</th>
-        <th scope="col">brewery_type</th>
-        <th scope="col">country</th>
-        <th scope="col">state</th>
-        <th scope="col">city</th>
-        <th scope="col">phone</th>
-        <th scope="col">updated_at</th>
-        <th scope="col">created_at</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let breweries of resconversion">
-        <td >{{breweries.id}}</td>
-        <td>{{breweries.name}}</td>
-        <td>{{breweries.brewery_type}}</td>
-        <td>{{breweries.country}}</td>
-        <td >{{breweries.state}}</td>
-        <td>{{breweries.city}}</td>
-        <td>{{breweries.phone}}</td>
-        <td>{{breweries.updated_at}}</td>
-        <td>{{breweries.created_at}}</td>
-      </tr>
-   
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">brewery_type</th>
+      <th scope="col">country</th>
+      <th scope="col">state</th>
+      <th scope="col">city</th>
+      <th scope="col">phone</th>
+      <th scope="col">updated_at</th>
+      <th scope="col">created_at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let breweries of resconversion">
+      <td>{{breweries.id}}</td>
+      <td>{{breweries.name}}</td>
+      <td>{{breweries.brewery_type}}</td>
+      <td>{{breweries.country}}</td>
+      <td>{{breweries.state}}</td>
+      <td>{{breweries.city}}</td>
+      <td>{{breweries.phone}}</td>
+      <td>{{breweries.updated_at}}</td>
+      <td>{{breweries.created_at}}</td>
+    </tr>
+
+  </tbody>
+</table>

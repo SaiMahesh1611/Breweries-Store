@@ -1,32 +1,36 @@
-
-<mat-tab-group [color]="'primary'" [backgroundColor]="'primary'" #tabGroup (selectedTabChange)="tabChanged($event)" >
-  <mat-tab label="All Breweries"> <ng-container *ngTemplateOutlet="tabContent"></ng-container></mat-tab>
-  <mat-tab label="Get Breweries by name "> 
-  <app-data-table></app-data-table>
-</mat-tab>
-  <mat-tab label="Search Breweries">  <div class="input-group search">
-    <div class="form-outline">
-      <input type="search" id="form1" class="form-control" placeholder="Search" [(ngModel)]="searchval"  />
+<mat-tab-group [color]="'primary'" [backgroundColor]="'primary'" #tabGroup (selectedTabChange)="tabChanged($event)">
+  <mat-tab label="All Breweries">
+    <ng-container *ngTemplateOutlet="tabContent"></ng-container>
+  </mat-tab>
+  <mat-tab label="Get Breweries by name ">
+    <app-data-table></app-data-table>
+  </mat-tab>
+  <mat-tab label="Search Breweries">
+    <div class="input-group search">
+      <div class="form-outline">
+        <input type="search" id="form1" class="form-control" placeholder="Search" [(ngModel)]="searchval" />
+      </div>
+      <button type="button" class="btn btn-primary" (click)="getdatabysearch(searchval)" [disabled]="!searchval">
+        <i class="fas fa-search"></i>
+      </button>
     </div>
-    <button type="button" class="btn btn-primary" (click)="getdatabysearch(searchval)" [disabled]="!searchval">
-      <i class="fas fa-search"></i>
-    </button>
-  </div> 
-  <ng-container *ngTemplateOutlet="tabContent"></ng-container> </mat-tab>
+    <ng-container *ngTemplateOutlet="tabContent"></ng-container>
+  </mat-tab>
   <mat-tab label="Logout">
     <mat-grid-list cols="1" rows="1" rowHeight="2:1">
       <mat-grid-tile>
-          <mat-card>
-         AS you sure you want to logout:
-        
-         <button  (click)="logout()" class="logoutbtn">Logout</button>
-          </mat-card>
+        <mat-card>
+          AS you sure you want to logout:
+
+          <button (click)="logout()" class="logoutbtn">Logout</button>
+        </mat-card>
       </mat-grid-tile>
-  </mat-grid-list>
+    </mat-grid-list>
   </mat-tab>
-  
+
 </mat-tab-group>
-<ng-template #tabContent >
+<mat-progress-bar mode="indeterminate" *ngIf="showspinner"></mat-progress-bar>
+<ng-template #tabContent>
   <table class="table table-striped table-responsive" *ngIf="dataSource">
     <thead>
       <tr>
@@ -43,19 +47,18 @@
     </thead>
     <tbody>
       <tr *ngFor="let breweries of dataSource">
-        <td >{{breweries.id}}</td>
+        <td>{{breweries.id}}</td>
         <td>{{breweries.name}}</td>
         <td>{{breweries.brewery_type}}</td>
         <td>{{breweries.country}}</td>
-        <td >{{breweries.state}}</td>
+        <td>{{breweries.state}}</td>
         <td>{{breweries.city}}</td>
         <td>{{breweries.phone}}</td>
         <td>{{breweries.updated_at}}</td>
         <td>{{breweries.created_at}}</td>
       </tr>
-  
-   
+
+
     </tbody>
   </table>
 </ng-template>
-
