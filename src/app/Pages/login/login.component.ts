@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.result=null;
     this.value1=Math.floor(Math.random() * 100) + 1 ;
     this.value2=Math.floor(Math.random() * 100) + 1 ;
 
@@ -26,7 +27,7 @@ if(result === parseInt(value)){
   localStorage.setItem('isLoggedin','true');
   this.router.navigate(['/Home']);
 }else{
-  
+  this.ngOnInit();
   this._snackBar.open('login failed','OK',{
     duration: 1000
   });

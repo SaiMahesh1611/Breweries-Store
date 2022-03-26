@@ -5,7 +5,7 @@
             <h2>Welcome to Breweries Store</h2>
             <div class="logiccontainer">
                {{value2}}&nbsp;&nbsp;+&nbsp;&nbsp;{{value1}}&nbsp;&nbsp;=
-               <input [(ngModel)]="result"/>
+               <input [(ngModel)]="result" (keyup.enter)="login($event.target.value)" />
                <button (click)="login(result)" type="number" class="loginbtn"  mat-raised-button color="primary">Login</button>
             </div>
             </div>
